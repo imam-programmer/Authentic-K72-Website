@@ -11,23 +11,19 @@ const Agence = () => {
     "./image/first-img.jpg",
     "./image/second.jpg",
     "./image/threed.jpg",
-     "./image/four.jpg",
-     "./image/five.jpg",
-     "./image/six.jpg",
-     "./image/seven.jpg",
-     "./image/eight.jpg",
-     "./image/first-img.jpg",
+    "./image/four.jpg",
+    "./image/five.jpg",
+    "./image/six.jpg",
+    "./image/seven.jpg",
+    "./image/eight.jpg",
+    "./image/first-img.jpg",
     "./image/second.jpg",
     "./image/threed.jpg",
-     "./image/four.jpg",
-     "./image/five.jpg",
-     "./image/six.jpg",
-     "./image/seven.jpg",
-     "./image/eight.jpg",
-
-   
-
-
+    "./image/four.jpg",
+    "./image/five.jpg",
+    "./image/six.jpg",
+    "./image/seven.jpg",
+    "./image/eight.jpg",
   ];
   useGSAP(function () {
     gsap.to(imageDivRef.current, {
@@ -37,23 +33,21 @@ const Agence = () => {
         end: "top -100%",
         pin: true,
         scrub: 2,
-        onUpdate:function(elem){
-       
+        onUpdate: function (elem) {
           let imageIndex;
-          if(elem.progress < 1){
-            imageIndex=Math.round(elem.progress * imageArray.length)
-
-          }else{
-            imageIndex=imageArray.length-1
+          if (elem.progress < 1) {
+            imageIndex = Math.round(elem.progress * imageArray.length);
+          } else {
+            imageIndex = imageArray.length - 1;
           }
-        imageRef.current.src=imageArray[imageIndex]
-        }
+          imageRef.current.src = imageArray[imageIndex];
+        },
       },
     });
   });
 
   return (
-    <div >
+    <div>
       <div className="section1">
         <div
           ref={imageDivRef}
