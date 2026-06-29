@@ -18,7 +18,6 @@ const Stairs = () => {
       stagger: {
         amount: -0.25,
       },
-     
     });
     tl.to(".stair", {
       y: "100%",
