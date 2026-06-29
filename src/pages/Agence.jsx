@@ -22,8 +22,9 @@ const Agence = () => {
     "./image/four.jpg",
     "./image/five.jpg",
     "./image/six.jpg",
-    "./image/seven.jpg",
     "./image/eight.jpg",
+    "./image/seven.jpg",
+ 
   ];
   useGSAP(function () {
     gsap.to(imageDivRef.current, {
@@ -65,8 +66,8 @@ const Agence = () => {
             Soixan7e <br /> douze
           </h1>
         </div>
-        <div className="pl-[40%] mt-20">
-          <p className="text-5xl ">
+        <div className="pl-[40%] mt-20 relative">
+          <p className="text-5xl p">
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp;Notre curiosite nourrit notre creativite. On
             reste humbles et on dit non aux vivante. Elle a des valeurs, une
