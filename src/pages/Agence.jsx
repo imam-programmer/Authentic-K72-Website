@@ -33,7 +33,12 @@ const Agence = () => {
         start: "top 28%",
         end: "top -100%",
         pin: true,
-        scrub: 2,
+        pinSpacing:true,
+        pinReparent:true,
+        pinType:"transform",
+        scrub: 1,
+        anticipatePin:1,
+        invalidateOnRefresh:true,
         onUpdate: function (elem) {
           let imageIndex;
           if (elem.progress < 1) {
@@ -48,7 +53,7 @@ const Agence = () => {
   });
 
   return (
-    <div>
+    <div className="text-[#bebebe]">
       <div className="section1">
         <div
           ref={imageDivRef}
