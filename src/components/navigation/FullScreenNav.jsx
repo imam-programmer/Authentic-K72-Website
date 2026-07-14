@@ -11,11 +11,14 @@ const FullScreenNav = () => {
 
   function gsapAnimation() {
     const tl = gsap.timeline();
-    tl.from(".stairing", {
-      delay: 0.5,
-      height: 0,
+    tl.to(".fullscreennav", {
+          display: "block",
+        });
+    tl.to(".stairing", {
+    
+      height: "100%",
       stagger: {
-        amount: -0.2,
+        amount: -0.5,
       },
     });
 
@@ -26,22 +29,38 @@ const FullScreenNav = () => {
         amount: 0.2,
       },
     });
-    tl.from(".navlink",{
-      opacity:1
-    })
+    tl.to(".navlink", {
+      opacity: 1,
+    });
   }
-  useGSAP(function () {
-    if (navOpen) {
-      gsap.to(".fullscreennav", {
-        display: "block",
-      });
-      gsapAnimation();
-    } else {
-      gsap.to(".fullscreennav", {
-        display: "none",
-      });
-    }
-  },[navOpen]);
+  function gsapAnimationReverse() {
+    const tl=gsap.timeline()
+    tl.to(".stairing", {
+      height: 0,
+      stagger: {
+        amount: 0.5,
+      },
+    });
+
+    tl.to(".navlink", {
+      opacity: 0,
+    });
+      tl.to(".fullscreennav", {
+          display: "none",
+       
+        });
+  }
+  useGSAP(
+    function () {
+      if (navOpen) {
+        
+        gsapAnimation();
+      } else {
+        gsapAnimationReverse()
+      }
+    },
+    [navOpen],
+  );
   return (
     <div
       ref={fullScreenRef}
@@ -50,12 +69,12 @@ const FullScreenNav = () => {
     >
       <div className="h-screen w-full fixed">
         <div className="h-full w-full flex ">
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
-          <div className="stairing h-full w-1/5 bg-red-600"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
         </div>
       </div>
 
