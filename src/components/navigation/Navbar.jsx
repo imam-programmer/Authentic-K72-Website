@@ -1,17 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { NavbarContext } from "../../context/NavContext";
 
 const Navbar = () => {
     const navGreenRef = useRef(null)
+    const [navOpen,setNevOpen] = useContext(NavbarContext)
    
     
   return (
     <div className="flex fixed  top-0 z-4 w-full justify-between">
-      <div className="p-2">
+    <Link to="/">
+      <div className="p-2" >
         <h1 className="text-5xl text-white">K72</h1>
       </div>
+      </Link>
 
 
-      <div 
+      <div onClick={()=>{
+
+        setNevOpen(true)
+      }
+        }
       onMouseEnter={()=>{
         navGreenRef.current.style.height="100%"
       }} 

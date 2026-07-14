@@ -8,46 +8,45 @@ const FullScreenNav = () => {
   const fullNavLinksRef = useRef(null);
   const fullScreenRef = useRef(null);
   const [navOpen, setNavOpen] = useContext(NavbarContext);
-  console.log(navOpen);
-  useGSAP(
-    function () {
-      const tl = gsap.timeline();
 
-      tl.from(".stairing", {
-  
-        height: 0,
-        stagger: {
-          amount: -0.3,
-        },
+  function gsapAnimation() {
+    const tl = gsap.timeline();
+    tl.from(".stairing", {
+      delay: 0.5,
+      height: 0,
+      stagger: {
+        amount: -0.2,
+      },
+    });
+
+    tl.from(".link", {
+      opacity: 0,
+      rotateX: 90,
+      stagger: {
+        amount: 0.2,
+      },
+    });
+    tl.from(".navlink",{
+      opacity:1
+    })
+  }
+  useGSAP(function () {
+    if (navOpen) {
+      gsap.to(".fullscreennav", {
+        display: "block",
       });
-      tl.from(fullNavLinksRef.current, {
-     
-        opacity: 0,
+      gsapAnimation();
+    } else {
+      gsap.to(".fullscreennav", {
+        display: "none",
       });
-      tl.from(".link", {
-       
-        opacity: 0,
-        rotateX: 90,
-        stagger: {
-          amount: 0.3,
-        },
-      });
-      tl.pause();
-      if (navOpen) {
-        fullScreenRef.current.style.display = "block";
-        tl.play();
-      } else {
-        fullScreenRef.current.style.display = "none";
-        tl.reverse();
-      }
-    },
-    [navOpen],
-  );
+    }
+  },[navOpen]);
   return (
     <div
       ref={fullScreenRef}
       id="fullscreennav"
-      className=" w-full absolute  overflow-x-hidden"
+      className="fullscreennav hidden w-full absolute z-50 overflow-x-hidden"
     >
       <div className="h-screen w-full fixed">
         <div className="h-full w-full flex ">
@@ -61,11 +60,17 @@ const FullScreenNav = () => {
       </div>
 
       <div ref={fullNavLinksRef} className="relative">
-        <div className="flex w-full justify-between p-2 items-start">
+        <div className="navlink flex w-full justify-between p-2 items-start">
           <div className="p-2">
             <h1 className="text-5xl text-white">K72</h1>
           </div>
-          <div id="cros-parent" className="h-30 w-30 relative cursor-pointer ">
+          <div
+            onClick={() => {
+              setNavOpen(false);
+            }}
+            id="cros-parent"
+            className="h-30 w-30 relative cursor-pointer "
+          >
             <div className="h-40 absolute -rotate-45 origin-top w-1 bg-white cros"></div>
             <div className="h-40 absolute right-0 rotate-45 origin-top w-1 bg-white cros"></div>
           </div>
