@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useRef } from "react";
+import Navbar from "../components/navigation/Navbar";
 
 const Agence = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -53,6 +54,8 @@ const Agence = () => {
   });
 
   return (
+    <>
+    <Navbar className="text-black"/>
     <div className="text-[#333]">
       <div className="section1">
         <div
@@ -84,8 +87,9 @@ const Agence = () => {
         </div>
       </div>
       
-      <div className="section2 h-screen"></div>
+      <div className="section2 h-[200px]"></div>
     </div>
+    </>
   );
 };
 

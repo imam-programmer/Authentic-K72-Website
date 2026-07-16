@@ -40,19 +40,25 @@ const Stairs = ({children}) => {
     },
     [currentPath],
   );
+ 
+
+  
   return (
     <div>
 
-      <div ref={stairParentRef} className="h-screen w-full  fixed z-20 top-0">
+      <div ref={stairParentRef} className="h-screen w-full  fixed z-20 top-0 hidden md:block">
         <div className="h-full w-full flex ">
-          <div className="stair h-full w-1/5 bg-black"></div>
-          <div className="stair h-full w-1/5 bg-black"></div>
-          <div className="stair h-full w-1/5 bg-black"></div>
-          <div className="stair h-full w-1/5 bg-black"></div>
-          <div className="stair h-full w-1/5 bg-black"></div>
-          <div className="stair h-full w-1/5 bg-black"></div>
+          <div className="stair h-full md:w-1/5 bg-black"></div>
+          <div className="stair h-full md:w-1/5 bg-black"></div>
+          <div className="stair h-full md:w-1/5 bg-black"></div>
+          <div className="stair h-full w-1/2 md:w-1/5 bg-black"></div>
+          <div className="stair h-full w-1/2 md:w-1/5 bg-black"></div>
+          <div className="stair h-full w-1/2 md:w-1/5 bg-black"></div>
         </div>
       </div>
+
+
+   
       <div ref={pageRef}>
 
       {children}

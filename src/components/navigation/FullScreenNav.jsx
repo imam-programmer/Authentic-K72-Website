@@ -3,6 +3,7 @@ import Stairs from "../common/Stairs";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import NavContext, { NavbarContext } from "../../context/NavContext";
+import { Link } from "react-router-dom";
 
 const FullScreenNav = () => {
   const fullNavLinksRef = useRef(null);
@@ -12,10 +13,10 @@ const FullScreenNav = () => {
   function gsapAnimation() {
     const tl = gsap.timeline();
     tl.to(".fullscreennav", {
-          display: "block",
-        });
+      display: "block",
+    });
     tl.to(".stairing", {
-    
+
       height: "100%",
       stagger: {
         amount: -0.5,
@@ -34,7 +35,7 @@ const FullScreenNav = () => {
     });
   }
   function gsapAnimationReverse() {
-    const tl=gsap.timeline()
+    const tl = gsap.timeline()
     tl.to(".stairing", {
       height: 0,
       stagger: {
@@ -45,15 +46,15 @@ const FullScreenNav = () => {
     tl.to(".navlink", {
       opacity: 0,
     });
-      tl.to(".fullscreennav", {
-          display: "none",
-       
-        });
+    tl.to(".fullscreennav", {
+      display: "none",
+
+    });
   }
   useGSAP(
     function () {
       if (navOpen) {
-        
+
         gsapAnimation();
       } else {
         gsapAnimationReverse()
@@ -67,7 +68,7 @@ const FullScreenNav = () => {
       id="fullscreennav"
       className="fullscreennav hidden w-full absolute z-50 overflow-x-hidden"
     >
-      <div className="h-screen w-full fixed">
+      <div className="h-screen w-full fixed hidden md:block">
         <div className="h-full w-full flex ">
           <div className="stairing h-full w-1/5 bg-black"></div>
           <div className="stairing h-full w-1/5 bg-black"></div>
@@ -76,6 +77,17 @@ const FullScreenNav = () => {
           <div className="stairing h-full w-1/5 bg-black"></div>
           <div className="stairing h-full w-1/5 bg-black"></div>
         </div>
+        
+      </div>
+
+      <div className="h-screen w-full fixed md:hidden">
+        <div className="h-full w-full flex ">
+          <div className="stairing h-full w-1/2 bg-black"></div>
+          <div className="stairing h-full w-1/2 bg-black"></div>
+          <div className="stairing h-full w-1/2 bg-black"></div>
+       
+        </div>
+        
       </div>
 
       <div ref={fullNavLinksRef} className="relative">
@@ -95,175 +107,89 @@ const FullScreenNav = () => {
           </div>
         </div>
         <div className=" py-10">
+         <Link to="/projects">
           <div className="cursor-pointer link origin-top relative  border-t-2 border-white">
-            <h1 className="text-[7vw] uppercase text-white font-medium text-center">
+            <h1 className="text-[10vw] md:text-[7vw] uppercase text-white font-medium text-center">
               Projects
             </h1>
             <div className=" moveLink absolute bg-[#d3fd50] text-black flex top-0">
               <div className="flex items-center moveX">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase  font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
+                  className="object-cover shrink-0 md:w-62 h-10 w-30 lg:h-20 md:h-15 sm:h-18 sm:w-50 rounded-full"
                   src="./image/navimage2.jpg"
                   alt=""
                 />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
+                  className="object-cover shrink-0 md:w-62 h-10 w-30 lg:h-20 md:h-15 sm:h-18 sm:w-50 rounded-full"
                   src="./image/navImage1.jpg"
                   alt=""
                 />
               </div>
               <div className="flex items-center moveX  ">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase  font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
+                  className="object-cover shrink-0 md:w-62 h-10 w-30 lg:h-25 md:h-15 sm:h-18 sm:w-50 rounded-full"
                   src="./image/navimage2.jpg"
                   alt=""
                 />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
+                  className="object-cover shrink-0 md:w-62 h-10 w-30 lg:h-25 md:h-15 sm:h-18 sm:w-50 rounded-full"
                   src="./image/navImage1.jpg"
                   alt=""
                 />
               </div>
             </div>
           </div>
+         </Link>
 
-          <div className="cursor-pointer link origin-top relative border-t-2 border-white">
-            <h1 className="text-[7vw] uppercase text-white font-medium text-center">
+          <div className="cursor-pointer link origin-top relative border-t-2 border-b-2  border-white">
+            <h1 className= "text-[10vw] md:text-[7vw] uppercase text-white font-medium text-center">
               agency
             </h1>
             <div className=" moveLink absolute bg-[#d3fd50] text-black flex top-0">
               <div className="flex items-center moveX">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase  font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
+                  className="object-cover shrink-0 md:w-62 w-30 sm:w-50 md:h-20 h-10 sm:h-18 rounded-full"
                   src="./image/navimage3.jpg"
                   alt=""
                 />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
+                  className="object-cover shrink-0 md:w-62 w-30 sm:w-50 md:h-20 h-10 sm:h-18 rounded-full"
                   src="./image/navimage4.jpg"
                   alt=""
                 />
               </div>
               <div className="flex items-center moveX  ">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase  font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
+                  className="object-cover shrink-0 md:w-62 w-30 sm:w-50 md:h-25 h-10 sm:h-18 rounded-full"
                   src="./image/navimage3.jpg"
                   alt=""
                 />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
+                <h2 className="whitespace-nowrap text-[10vw] md:text-[7vw] uppercase font-medium text-center">
                   Pour Tout voir
                 </h2>
                 <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
-                  src="./image/navImage1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="cursor-pointer link origin-top relative border-t-2 border-white">
-            <h1 className="text-[7vw] uppercase text-white font-medium text-center">
-              contact
-            </h1>
-            <div className=" moveLink absolute bg-[#d3fd50] text-black flex top-0">
-              <div className="flex items-center moveX">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
-                  src="./image/navimage2.jpg"
-                  alt=""
-                />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
-                  src="./image/navImage1.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center moveX  ">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
-                  src="./image/navimage2.jpg"
-                  alt=""
-                />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
-                  src="./image/navImage1.jpg"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className=" cursor-pointer link origin-top relative border-t-2 border-b-2 border-white">
-            <h1 className="text-[7vw] uppercase text-white font-medium text-center">
-              blog
-            </h1>
-            <div className=" moveLink absolute bg-[#d3fd50] text-black flex top-0">
-              <div className="flex items-center moveX">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
-                  src="./image/navimage3.jpg"
-                  alt=""
-                />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-20 rounded-full"
-                  src="./image/navImage1.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center moveX  ">
-                <h2 className="whitespace-nowrap text-[7vw] uppercase  font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
-                  src="./image/navimage2.jpg"
-                  alt=""
-                />
-                <h2 className="whitespace-nowrap text-[7vw] uppercase font-medium text-center">
-                  Pour Tout voir
-                </h2>
-                <img
-                  className="object-cover shrink-0 w-62 h-25 rounded-full"
+                  className="object-cover shrink-0 md:w-62 w-30 sm:w-50 md:h-25 h-10 sm:h-18 rounded-full"
                   src="./image/navImage1.jpg"
                   alt=""
                 />

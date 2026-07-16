@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { NavbarContext } from "../../context/NavContext";
 
-const Navbar = () => {
+const Navbar = ({className}) => {
     const navGreenRef = useRef(null)
-    const [navOpen,setNevOpen] = useContext(NavbarContext)
-   
+    const [navOpen,setNevOpen] = useContext(NavbarContext);
     
   return (
     <div className="flex fixed  top-0 z-4 w-full justify-between">
     <Link to="/">
       <div className="md:p-2 pl-2 " >
-        <h1 className="text-3xl md:text-5xl text-white">K72</h1>
+      <h1 className={`text-3xl md:text-5xl ${className}`}>K72</h1>
       </div>
       </Link>
 
