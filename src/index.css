@@ -28,3 +28,12 @@ body{
 #cros-parent:hover .cros{
 background-color: #d3fd50;
 }
+@theme {
+  --breakpoint-xs: 28rem;   
+ --breakpoint-smd:31.3rem
+}
+.project-h2{
+    color: transparent;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    -webkit-text-stroke: 3px black;
+}
