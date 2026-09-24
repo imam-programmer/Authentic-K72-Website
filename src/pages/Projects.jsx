@@ -64,7 +64,7 @@ const Projects = () => {
         </div>
       </div>
       <div className='h-screen flex justify-center items-center bg-[#196ae4bb]'>
-        <h2 className='lg:text-[10vw] text-[25px] sm:text-6xl uppercase font-bold project-h2'><i>Thank You</i></h2>
+        <h2 className='lg:text-[10vw] text-[35px] sm:text-6xl uppercase font-bold project-h2'><i>Thank You</i></h2>
       </div>
     </>
   )

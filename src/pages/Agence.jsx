@@ -75,7 +75,7 @@ const Agence = () => {
           </h1>
         </div>
         <div className="sm:pl-[40%] mt-10 sm:mt-20 relative">
-          <p className="xl:text-5xl text-2xl lg:text-4xl md:text-3xl p">
+          <p className="xl:text-5xl sm:text-2xl lg:text-4xl md:text-3xl px-1 p">
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp;Notre curiosite nourrit notre creativite. On
             reste humbles et on dit non aux vivante. Elle a des valeurs, une
